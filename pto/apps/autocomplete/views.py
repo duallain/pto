@@ -20,7 +20,7 @@ def cities(request):
         qs = qs.filter(city__istartswith=term)
     for each in (qs
                      .values('city')
-                     .distinct('city')
+                     .distinct()
                      .order_by('city')):
         city = each['city']
         data.append(city)

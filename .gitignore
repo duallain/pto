@@ -15,7 +15,7 @@ vendor
 tmp/*
 *~
 *.mo
-settings/local*
+pto/settings/local*
 *.js.old
 TODO
 cover/

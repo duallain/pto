@@ -8,59 +8,31 @@
 {% extends "base.html" %}
 
 {% block extra_site_css %}
-{{ css('jquery_ui') }}
-{{ css('dates.list') }}
-<style>
-/* tables */
-table.tablesorter {
-	border-collapse: collapse;
-	font-family:arial;
-	background-color: #CDCDCD;
-	margin:10px 0pt 15px;
-	font-size: 8pt;
-	width: 100%;
-	text-align: left;
-}
-table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background-color: #e6EEEE;
-	border: 1px solid #FFF;
-	font-size: 8pt;
-	padding: 4px;
-	border:1px solid #ccc;
-}
-table.tablesorter thead tr .header {
-	background-image: url(bg.gif);
-	background-repeat: no-repeat;
-	background-position: center right;
-	cursor: pointer;
-}
-table.tablesorter tbody td {
-	color: #3D3D3D;
-	padding: 4px;
-	background-color: #FFF;
-	vertical-align: top;
-	border:1px solid #ccc;
-}
-table.tablesorter tbody tr.odd td {
-	background-color:#F0F0F6;
-}
-table.tablesorter thead tr .headerSortUp {
-	background-image: url(asc.gif);
-}
-table.tablesorter thead tr .headerSortDown {
-	background-image: url(desc.gif);
-}
-table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
-	background-color: #8dbdd8;
-}
-
-#load-placeholder {
-	text-align:center;
-        border:1px solid #ccc;
-        padding:30px;
-}
-</style>
+{% compress css %}
+<link rel="stylesheet" href="{{ static("css/libs/datatable/css/demo_table.css") }}">
+<link rel="stylesheet" href="{{ static("dates/css/list.css") }}">
+{% endcompress %}
 {% endblock %}
+
+
+{% block extra_site_js %}
+<script>
+var DATE_MIN = new Date({{ first_date.year }}, {{ first_date.month }}-1, {{ first_date.day }});
+var DATE_MAX = new Date({{ last_date.year }}, {{ last_date.month }}-1, {{ last_date.day }});
+{% if first_filed_date %}
+var FILED_MIN = new Date({{ first_filed_date.year }}, {{ first_filed_date.month }}-1, {{ first_filed_date.day }});
+{% else %}
+var FILED_MIN = new Date({{ today.year }}, {{ today.month }}-1, {{ today.day }});
+{% endif %}
+var FILED_MAX = new Date({{ today.year }}, {{ today.month }}-1, {{ today.day }});
+var DATA_URL = '{{ url('dates.list_json') }}';
+</script>
+{% compress js %}
+<script src="{{ static("js/libs/jquery.dataTables.js") }}"></script>
+<script src="{{ static("dates/js/list.js") }}"></script>
+{% endcompress %}
+{% endblock %}
+
 
 {% block content %}
 <form id="filter_form" action=".">
@@ -159,21 +131,4 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 
 <div class="clearer">&nbsp;</div>
 
-{% endblock %}
-
-
-{% block extra_site_js %}
-{{ js('jquery_ui') }}
-<script>
-var DATE_MIN = new Date({{ first_date.year }}, {{ first_date.month }}-1, {{ first_date.day }});
-var DATE_MAX = new Date({{ last_date.year }}, {{ last_date.month }}-1, {{ last_date.day }});
-{% if first_filed_date %}
-var FILED_MIN = new Date({{ first_filed_date.year }}, {{ first_filed_date.month }}-1, {{ first_filed_date.day }});
-{% else %}
-var FILED_MIN = new Date({{ today.year }}, {{ today.month }}-1, {{ today.day }});
-{% endif %}
-var FILED_MAX = new Date({{ today.year }}, {{ today.month }}-1, {{ today.day }});
-var DATA_URL = '{{ url('dates.list_json') }}';
-</script>
-{{ js('dates.list') }}
 {% endblock %}

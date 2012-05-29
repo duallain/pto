@@ -187,7 +187,7 @@ class ListFilterForm(BaseForm):
 
         for each in (UserProfile.objects.exclude(country='')
                      .values('country')
-                     .distinct('country')
+                     .distinct()
                      .order_by('country')):
             country = each['country']
             self.fields['country'].choices.append((country, country))

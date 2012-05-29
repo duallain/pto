@@ -7,8 +7,23 @@
 #}
 
 {% block extra_site_css %}
-{{ css('jquery_ui') }}
-{{ css('dates.home') }}
+{% compress css %}
+<link rel="stylesheet" href="{{ static("css/libs/fullcalendar.css") }}">
+<link rel="stylesheet" href="{{ static("dates/css/home.css") }}">
+{% endcompress %}
+{% endblock %}
+
+
+{% block extra_site_js %}
+<script>
+var CALENDAR_FIRST_DAY = {{ first_day }}; // 0=Sunday, 1=Monday
+</script>
+
+{% compress js %}
+<script src="{{ static("js/libs/fullcalendar.min.js") }}"></script>
+<script src="{{ static("dates/js/home.js") }}"></script>
+{% endcompress %}
+
 {% endblock %}
 
 
@@ -37,7 +52,7 @@
 <a href="">Add a new one on top?</a></p>
 </div>
 
-<a href="{{ calendar_url }}"><img src="{{ media('img/calendar-icon.png') }}" alt="Calendar"></a>
+<a href="{{ calendar_url }}"><img src="{{ static('img/calendar-icon.png') }}" alt="Calendar"></a>
 To add this to an external calendar (e.g. iCal or Outlook) you need this URL:
 <a href="{{ calendar_url }}">{{ calendar_url }}</a>
 <span class="reset-link">
@@ -45,7 +60,7 @@ To add this to an external calendar (e.g. iCal or Outlook) you need this URL:
  <a href="{{ url('dates.about_calendar_url') }}" class="small-link" title="Click to find out more about how this works">read more</a>)
 </span>
 <br>
-<a href="{{ url('dates.duplicate_report') }}"><img src="{{ media('img/duplicate-icon.png') }}" alt="Duplicate report"></a>
+<a href="{{ url('dates.duplicate_report') }}"><img src="{{ static('img/duplicate-icon.png') }}" alt="Duplicate report"></a>
 To find suspicious duplicate submissions use the <a href="{{ url('dates.duplicate_report') }}">Duplicate report</a>
 </div>
 
@@ -140,13 +155,4 @@ this year.
 </p>
 {% endif %}
 <div class="clearer">&nbsp;</div>
-{% endblock %}
-
-
-{% block extra_site_js %}
-<script>
-var CALENDAR_FIRST_DAY = {{ first_day }}; // 0=Sunday, 1=Monday
-</script>
-{{ js('jquery_ui') }}
-{{ js('dates.home') }}
 {% endblock %}

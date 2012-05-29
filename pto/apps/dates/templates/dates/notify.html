@@ -6,10 +6,21 @@
 #}
 
 {% extends "base.html" %}
+
+
 {% block extra_site_css %}
-{{ css('jquery_ui') }}
-{{ css('dates') }}
+{% compress css %}
+<link rel="stylesheet" href="{{ static("dates/css/notify.css") }}">
+{% endcompress %}
 {% endblock %}
+
+
+{% block extra_site_js %}
+{% compress js %}
+<script src="{{ static("dates/js/notify.js") }}"></script>
+{% endcompress %}
+{% endblock %}
+
 
 {% block content %}
 
@@ -32,10 +43,4 @@
 </table>
 
 </form>
-{% endblock %}
-
-
-{% block extra_site_js %}
-{{ js('jquery_ui') }}
-{{ js('dates.notify') }}
 {% endblock %}

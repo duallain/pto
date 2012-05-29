@@ -11,83 +11,75 @@ PROJECT_MODULE = 'pto'
 
 # Bundles is a dictionary of two dictionaries, css and js, which list css files
 # and js files that can be bundled together by the minify app.
-MINIFY_BUNDLES = {
-    'css': {
-        'global': (
-            'css/style.css',
-        ),
-        'jquery_ui': (
-            'css/libs/jquery_ui/redmond/jquery-ui-1.8.20.datepicker.autocomplete.dialog.css',
-        ),
-        'libs/jquery_mobile': (
-            'css/libs/jquery.mobile-1.1.0.min.css',
-        ),
-        'mobile': (
-            'css/mobile/mobile.css',
-        ),
-        'dates': (
-            'css/dates/notify.css',
-            'css/dates/hours.css',
-        ),
-        'dates.home': (
-            'css/libs/fullcalendar.css',
-            'css/dates/home.css',
-        ),
-        'dates.emails_sent': (
-            'css/libs/fireworks.css',
-        ),
-        'dates.list': (
-            'css/libs/datatable/css/demo_table.css',
-        ),
-        'dates.following': (
-            'css/dates/following.css',
-        ),
-        'dates.about-calendar-url': (
-            'css/dates/about-calendar-url.css',
-        ),
-    },
-    'js': {
-        'global': (
-            'js/libs/jquery-1.7.2.min.js',
-            'js/global.js',
-        ),
-        'mobile': (
-            'js/libs/jquery-1.7.2.min.js',
-            'js/libs/date.js',
-            'js/mobile/mobile.js',
-            'js/libs/jquery.mobile-1.1.0.min.js',
-        ),
-        'dates.home': (
-            'js/libs/fullcalendar.min.js',
-            'js/dates/home.js',
-        ),
-        'dates.hours': (
-            'js/dates/hours.js',
-        ),
-        'dates.emails_sent': (
-            'js/libs/soundmanager2-nodebug-jsmin.js',
-            'js/libs/fireworks.js',
-            'js/libs/jquery.cookie.min.js',
-            'js/dates/emails_sent.js',
-        ),
-        'jquery_ui': (
-            'js/libs/jquery-ui-1.8.20.datepicker.autocomplete.dialog.min.js',
-        ),
-        'dates.notify': (
-            'js/dates/notify.js',
-        ),
-        'dates.list': (
-            'js/libs/jquery.dataTables.js',
-            'js/dates/list.js',
-        ),
-        'dates.following': (
-            'js/dates/following.js',
-        ),
-        'users.profile': (
-            'js/users/profile.js',
-        ),
-    }
-}
+#MINIFY_BUNDLES = {
+#    'css': {
+##        'global': (
+##            'css/style.css',
+##        ),
+#        'jquery_ui': (
+#            'css/libs/jquery_ui/redmond/jquery-ui-1.8.20.datepicker.autocomplete.dialog.css',
+#        ),
+#        'libs/jquery_mobile': (
+#            'css/libs/jquery.mobile-1.1.0.min.css',
+#        ),
+#        'mobile': (
+#            'css/mobile/mobile.css',
+#        ),
+##        'dates': (
+##            'css/dates/notify.css',
+##            'css/dates/hours.css',
+##        ),
+#        'dates.home': (
+#            'css/libs/fullcalendar.css',
+#            'css/dates/home.css',
+#        ),
+#        'dates.emails_sent': (
+#            'css/libs/fireworks.css',
+#        ),
+##        'dates.list': (
+##            'css/libs/datatable/css/demo_table.css',
+##        ),
+##        'dates.following': (
+##            'css/dates/following.css',
+##        ),
+#        'dates.about-calendar-url': (
+#            'css/dates/about-calendar-url.css',
+#        ),
+#    },
+#    'js': {
+#        'mobile': (
+#            'js/libs/jquery-1.7.2.min.js',
+#            'js/libs/date.js',
+#            'js/mobile/mobile.js',
+#            'js/libs/jquery.mobile-1.1.0.min.js',
+#        ),
+##        'dates.hours': (
+##            'js/dates/hours.js',
+##        ),
+##        'dates.emails_sent': (
+##            'js/libs/soundmanager2-nodebug-jsmin.js',
+##            'js/libs/fireworks.js',
+##            'js/libs/jquery.cookie.min.js',
+##            'js/dates/emails_sent.js',
+##        ),
+##        'jquery_ui': (
+##            'js/libs/jquery-ui-1.8.20.datepicker.autocomplete.dialog.min.js',
+##        ),
+##        'dates.notify': (
+##            'js/dates/notify.js',
+##        ),
+##        'dates.list': (
+##            'js/libs/jquery.dataTables.js',
+##            'js/dates/list.js',
+##        ),
+##        'dates.following': (
+##            'js/dates/following.js',
+##        ),
+##        'users.profile': (
+##            'js/users/profile.js',
+##        ),
+#    }
+#}
 
 ## Internationalization.
 
@@ -148,6 +140,7 @@ INSTALLED_APPS += (
     'apps.mobile',
     'apps.autocomplete',
 )
+
 
 # Path to Java. Used for compress_assets.
 JAVA_BIN = '/usr/bin/java'

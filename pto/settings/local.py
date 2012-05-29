@@ -8,6 +8,8 @@
 #INTERNAL_IPS = ('127.0.0.1',)
 DEBUG_PROPAGATE_EXCEPTIONS = True
 DEV = DEBUG = TEMPLATE_DEBUG = True
+#DEV = DEBUG = TEMPLATE_DEBUG = 0
+SECRET_KEY = 'simetugh'
 TEMPLATE_STRING_IF_INVALID = '!{ %s }'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 PWD_ALGORITHM = 'sha521'
@@ -34,6 +36,12 @@ DATABASES = {
     },
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake'
+    }
+}
 
 #AUTH_LDAP_HOST = 'ldap://pm-ns.mozilla.org'
 AUTH_LDAP_SERVER_URI = 'ldap://pm-ns.mozilla.org'

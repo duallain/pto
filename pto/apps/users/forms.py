@@ -44,7 +44,7 @@ class ProfileForm(BaseModelForm):
         _all_longforms = []
         for each in (UserProfile.objects.exclude(country='')
                      .values('country')
-                     .distinct('country')
+                     .distinct()
                      .order_by('country')):
             country = each['country']
             long_form = country

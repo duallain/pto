@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.encoding import smart_str
 from django.core.urlresolvers import reverse
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 import jinja2
 from jingo import register
@@ -53,25 +54,23 @@ def truncatewords(context, string, length):
     return string
 
 
-@register.function
-@jinja2.contextfunction
-def media(context, url, key='MEDIA_URL'):
-    """Get a MEDIA_URL link with a cache buster querystring."""
-    if url.endswith('.js'):
-        build = context['BUILD_ID_JS']
-    elif url.endswith('.css'):
-        build = context['BUILD_ID_CSS']
-    else:
-        #build = context['BUILD_ID_IMG']
-        build = context['BUILD_ID_JS']
-    return context[key] + urlparams(url, b=build)
+#@register.function
+#@jinja2.contextfunction
+#def media(context, url, key='MEDIA_URL'):
+#    """Get a MEDIA_URL link with a cache buster querystring."""
+#    if url.endswith('.js'):
+#        build = context['BUILD_ID_JS']
+#    elif url.endswith('.css'):
+#        build = context['BUILD_ID_CSS']
+#    else:
+#        #build = context['BUILD_ID_IMG']
+#        build = context['BUILD_ID_JS']
+#    return context[key] + urlparams(url, b=build)
 
 
 @register.function
-@jinja2.contextfunction
-def static(context, url):
-    """Get a STATIC_URL link with a cache buster querystring."""
-    return media(context, url, 'STATIC_URL')
+def static(path):
+    return staticfiles_storage.url(path)
 
 
 @register.function

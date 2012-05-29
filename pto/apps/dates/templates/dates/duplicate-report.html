@@ -7,8 +7,8 @@
 
 {% extends "base.html" %}
 
+
 {% block extra_site_css %}
-{{ css('jquery_ui') }}
 <style>
 table.group { width: 100%; margin-bottom: 30px; border-top: 1px solid #ccc; }
 table.group thead td { font-weight:bold; }
@@ -16,6 +16,25 @@ table.group td { vertical-align: top; }
 table.group th.details, table.group td.details {width:40%; }
 </style>
 {% endblock %}
+
+
+{% block extra_site_js %}
+<script>
+var MIN_DATE = new Date({{ first_date.year }}, {{ first_date.month }}-1, {{ first_date.day }});
+$(function() {
+  $('input[name="since"]').datepicker({
+    dateFormat: 'd MM yy',
+    changeMonth: true,
+    changeYear: true,
+    minDate: MIN_DATE,
+    maxDate: new Date(),
+    showAnim: 'fadeIn',
+    showButtonPanel: true
+  });
+});
+</script>
+{% endblock %}
+
 
 {% block content %}
 
@@ -74,24 +93,4 @@ to process those duplicates and have them removed by an administrator.
 </p>
 {% endfor %}
 
-
-{% endblock %}
-
-
-{% block extra_site_js %}
-{{ js('jquery_ui') }}
-<script>
-var MIN_DATE = new Date({{ first_date.year }}, {{ first_date.month }}-1, {{ first_date.day }});
-$(function() {
-  $('input[name="since"]').datepicker({
-    dateFormat: 'd MM yy',
-    changeMonth: true,
-    changeYear: true,
-    minDate: MIN_DATE,
-    maxDate: new Date(),
-    showAnim: 'fadeIn',
-    showButtonPanel: true
-  });
-});
-</script>
 {% endblock %}

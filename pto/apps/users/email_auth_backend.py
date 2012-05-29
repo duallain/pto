@@ -18,7 +18,10 @@ class EmailOrUsernameModelBackend(object):
             kwargs = {'username': username}
         try:
             user = User.objects.get(**kwargs)
-            if user.check_password(password):
+            # Strangely, if user.password is '', user.has_usable_password()
+            # will return True and trying to use user.check_password()
+            # against an empty password will fail with a ValueError  :(
+            if user.password and user.check_password(password):
                 return user
         except User.DoesNotExist:
             return None

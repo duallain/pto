@@ -12,13 +12,23 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="apple-touch-icon-precomposed" href="{{ media('img/mobile/apple-touch-icon.png') }}">
-	<link rel="shortcut icon" href="{{ media('img/mobile/apple-touch-icon.png') }}">
+	<link rel="apple-touch-icon-precomposed" href="{{ static('mobile/img/apple-touch-icon.png') }}">
+	<link rel="shortcut icon" href="{{ static('mobile/img/apple-touch-icon.png') }}">
 
         <title>{% block page_title %}Mozilla PTO{% endblock %}</title>
-        {{ css('libs/jquery_mobile') }}
-        {{ css('mobile') }}
-        {{ js('mobile') }}
+
+        {% compress css %}
+        <link rel="stylesheet" href="{{ static("css/libs/jquery.mobile-1.1.0.min.css") }}">
+        <link rel="stylesheet" href="{{ static("mobile/css/mobile.css") }}">
+        {% endcompress %}
+
+        {% compress js %}
+        <script src="{{ static("js/libs/jquery-1.7.2.min.js") }}"></script>
+        <script src="{{ static("js/libs/date.js") }}"></script>
+        <script src="{{ static("mobile/js/mobile.js") }}"></script>
+        <script src="{{ static("js/libs/jquery.mobile-1.1.0.min.js") }}"></script>
+        {% endcompress %}
+
 
 </head>
 <body>

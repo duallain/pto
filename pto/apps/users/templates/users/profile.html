@@ -7,10 +7,6 @@
 
 {% extends "base.html" %}
 
-{% block extra_site_css %}
-{{ css('jquery_ui') }}
-{% endblock %}
-
 {% block content %}
 <h2>Settings</h2>
 
@@ -26,8 +22,8 @@
 
 {% endblock %}
 
-
 {% block extra_site_js %}
-{{ js('jquery_ui') }}
-{{ js('users.profile') }}
+{% compress js %}
+<script src="{{ static("users/js/profile.js") }}"></script>
+{% endcompress %}
 {% endblock %}

@@ -7,16 +7,20 @@
 
 {% extends "base.html" %}
 
+
 {% block extra_site_css %}
-{{ css('jquery_ui') }}
-{{ css('dates.following') }}
+{% compress css %}
+<link rel="stylesheet" href="{{ static("dates/css/following.css") }}">
+{% endcompress %}
 {% endblock %}
 
 
 {% block extra_site_js %}
-{{ js('jquery_ui') }}
-{{ js('dates.following') }}
+{% compress js %}
+<script src="{{ static("dates/js/following.js") }}"></script>
+{% endcompress %}
 {% endblock %}
+
 
 {% block page_title %}People you're following (or not){% endblock %}
 

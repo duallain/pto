@@ -7,8 +7,11 @@
 
 {% extends "base.html" %}
 
+
 {% block extra_site_css %}
-{{ css('dates.about-calendar-url') }}
+{% compress css %}
+<link rel="stylesheet" href="{{ static("dates/css/about-calendar-url.css") }}">
+{% endcompress %}
 {% endblock %}
 
 
@@ -31,11 +34,11 @@ For example iCal, Outlook, Zimbra or Google Calendar.</p>
 <h2>To import into Zimbra</h2>
 
 <p><strong>1. Click to add a new calendar</strong><br>
-<img class="thumbnail" src="{{ media('img/about-calendar-url/zimbra-click-to-add.png') }}" alt="Click to add">
+<img class="thumbnail" src="{{ static('img/about-calendar-url/zimbra-click-to-add.png') }}" alt="Click to add">
 </p>
 
 <p><strong>2. Give it a name and paste in your URL</strong><br>
-<img class="thumbnail" src="{{ media('img/about-calendar-url/zimbra-adding-calendar.png') }}" alt="Enter your URL">
+<img class="thumbnail" src="{{ static('img/about-calendar-url/zimbra-adding-calendar.png') }}" alt="Enter your URL">
 </p>
 
 <p><strong>3. Press OK</strong>
@@ -46,11 +49,11 @@ For example iCal, Outlook, Zimbra or Google Calendar.</p>
 <h2>To import into Google Calendar</h2>
 
 <p><strong>1. Click to add a new calendar</strong><br>
-<img class="thumbnail" src="{{ media('img/about-calendar-url/google-click-to-add.png') }}" alt="Click to add">
+<img class="thumbnail" src="{{ static('img/about-calendar-url/google-click-to-add.png') }}" alt="Click to add">
 </p>
 
 <p><strong>2. Paste in your URL</strong><br>
-<img class="thumbnail" src="{{ media('img/about-calendar-url/google-adding-calendar.png') }}" alt="Enter your URL">
+<img class="thumbnail" src="{{ static('img/about-calendar-url/google-adding-calendar.png') }}" alt="Enter your URL">
 </p>
 
 <p><strong>3. Press Add Calendar</strong>

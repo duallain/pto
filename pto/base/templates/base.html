@@ -7,14 +7,18 @@
 <html lang="en-US" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="/media/img/favicon.ico">
+    <link rel="shortcut icon" href="{{ static("img/favicon.ico") }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ static("img/favicon.ico") }}">
     <title>{% block page_title %}Mozilla PTO{% endblock %}</title>
-    {% block site_css %}
-      {{ css('global') }}
-    {% endblock %}
+
+    {#<link rel="stylesheet" href="{{ static("css/style.css") }}">#}
+    {% compress css %}
+    <link type="text/less" rel="stylesheet" href="{{ static("css/style.less") }}">
+    <link rel="stylesheet" href="{{ static("css/libs/jquery_ui/redmond/jquery-ui-1.8.20.datepicker.autocomplete.dialog.css") }}">
+    {% endcompress %}
+
     {% block extra_site_css %}
     {% endblock %}
-    <link rel="shortcut icon" type="image/x-icon" href="/media/img/favicon.ico">
   </head>
   <body>
   <div id="page">
@@ -50,7 +54,11 @@
 
   <script>function L() {if (window.console && window.console.log)console.log.apply(console, arguments)}</script>
   {% block site_js %}
-    {{ js('global') }}
+    {% compress js %}
+    <script src="{{ static("js/libs/jquery-1.7.2.min.js") }}"></script>
+    <script src="{{ static("js/libs/jquery-ui-1.8.20.datepicker.autocomplete.dialog.min.js") }}"></script>
+    <script src="{{ static("js/global.js") }}"></script>
+    {% endcompress %}
   {% endblock %}
   {% block extra_site_js %}
   {% endblock %}

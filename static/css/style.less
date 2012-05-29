@@ -1,0 +1,242 @@
+* {
+  margin:0;
+  padding:0;
+  font-family:inherit;
+  font-size:100%;
+  font-weight:inherit;
+  font-style:inherit;
+  text-decoration:none;
+  list-style:none;
+}
+html {
+  font:14px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  font-weight:normal;
+  font-style:normal;
+  background:url(images/bg.png) #67a7c7 repeat-x fixed;
+  color:#ffffff;
+}
+h1 {
+  font-size:180%;
+  font-weight:bold;
+  margin-bottom:20px;
+  a {
+    left:10%;
+    height:47px;
+    width:0;
+    padding-left:275px;
+    background:url(images/pto.png) no-repeat;
+    overflow:hidden;
+    display:block;
+  }
+}
+h2 {
+  font-size:140%;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+h1, h3, h4 {
+  font-weight:bold;
+  margin-bottom:20px;
+}
+body {
+  padding:15px;
+  margin:0;
+}
+a {
+  color:#acd1e3;
+}
+a:hover {
+  text-decoration:underline;
+}
+em {
+  font-style:italic;
+}
+#page {
+  width:90%;
+  margin:0 auto;
+  position:relative;
+  a {
+    color:#0489b7;
+  }
+}
+section {
+  display:block;
+  color:black;
+  background-color:white;
+  padding:1em;
+  border-radius:0.5em;
+  margin-top:1em;
+  min-height:300px;
+}
+input[size="10"] {
+  width:12ex;
+}
+p {
+  margin:0.5em 0 1em 0;
+}
+form ul li {
+  padding-left:1em;
+  list-style-type:disc;
+  list-style-position:inside;
+}
+span.ui-timepickr {
+  background-color:#fcfdfd;
+  border:1px solid #a6c9e2;
+  border-radius:5px;
+}
+button#filter {
+  padding:0.2em;
+}
+#menu {
+  position:absolute;
+  right:3em;
+  top:1em;
+  li {
+    display:inline;
+    margin-left:3em;
+    a {
+      color:#acd1e3;
+    }
+  }
+}
+#views {
+  background-color:rgba(102,204,255,0.5);
+  padding:0.5em 0 0.5em 0;
+  border-top-left-radius:0.5em;
+  border-top-right-radius:0.5em;
+  cursor:default;
+  li {
+    padding-left:0.5em;
+    padding-right:0.5em;
+    a {
+      text-decoration:none;
+      color:black;
+      cursor:pointer;
+      padding:0.25em;
+    }
+    a:hover {
+      background-color:#dddddd;
+    }
+  }
+  li.view {
+    float:right;
+    border-right:1px solid black;
+    margin-top:3px;
+  }
+  li:first-child {
+    border-right:none;
+  }
+}
+#loading {
+  display:none;
+}
+#loading.loading {
+  display:inline-block;
+  vertical-align:middle;
+  margin-bottom:4px;
+  height:0;
+  padding:0;
+  padding-top:16px;
+  width:16px;
+  overflow:hidden;
+  background:url(images/throbber.png) no-repeat;
+}
+#formats {
+  background-color:#bddce6;
+  color:#000000;
+  padding:0.5em 0.5em 0 1em;
+  cursor:default;
+  ul {
+    display:inline;
+    li {
+      display:inline;
+      padding:0.25em 1em 0.25em 1em;
+    }
+    li.active {
+      background-color:white;
+      border-top-left-radius:0.4em;
+      border-top-right-radius:0.4em;
+    }
+  }
+}
+td {
+  vertical-align:top;
+  padding:0.25em;
+}
+tr td:first-child label {
+  font-weight:bold;
+}
+strong {
+  font-weight:bold;
+}
+#pto {
+  padding-top:0.25em;
+  background-color:white;
+  color:black;
+  td.action, #no-match {
+    text-align:center;
+  }
+  tr td {
+    padding:0.3em;
+  }
+  tbody tr:nth-child(even) {
+    background:rgba(192,192,192,0.7);
+  }
+  th {
+    background:rgba(128,128,128,0.5) no-repeat right center;
+    padding-right:24px;
+    text-align:center;
+  }
+  th.header {
+    cursor:pointer;
+    background-image:url(images/sort.gif);
+  }
+  th.headerSortDown {
+    background-image:url(images/desc.gif);
+    background-color:rgba(128,128,128,1);
+  }
+  th.headerSortUp {
+    background-image:url(images/asc.gif);
+    background-color:rgba(128,128,128,1);
+  }
+  th.action {
+    padding:0 24px 0 24px;
+  }
+}
+div.clearer {
+  clear:both;
+  line-height:0;
+  height:0;
+}
+.errorlist li {
+  color:red;
+  list-style-type:none;
+}
+#content a.anchor {
+  display:none;
+}
+.flash {
+  position:absolute;
+  right:20px;
+  top:50px;
+  background-color:#ffffff;
+  border:1px solid #cccccc;
+  width:400px;
+  float:right;
+  padding:6px;
+  font-size:80%;
+  border-radius:0.4em;
+  p, a.close {
+    margin:0.5em;
+  }
+  .close {
+    float:right;
+  }
+  .legend {
+    border-radius:3px;
+    background-color:#3366cc;
+    color:white;
+    margin:2px;
+    padding:2px;
+  }
+}

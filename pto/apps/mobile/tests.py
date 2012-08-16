@@ -117,6 +117,9 @@ class MobileViewsTest(TestCase, ViewsTestMixin):
         harry = User.objects.create_user(
           'harry', 'harry@mozilla.com',
         )
+        mike = User.objects.create_user(
+          'mike', 'mike@mozilla.com',
+        )
 
         today = datetime.date.today()
 
@@ -148,15 +151,44 @@ class MobileViewsTest(TestCase, ViewsTestMixin):
           end=today + datetime.timedelta(days=2),
         )
 
-        self._login()
+        user = self._login()
+        response = self.client.get(url)
+        eq_(response.status_code, 200)
+        struct = json.loads(response.content)
+        eq_(len(struct['now']), 0)
+        eq_(len(struct['upcoming']), 0)
+
+        # nothing is returned because the current isnt' following
+        # these people
+        profile = user.get_profile()
+        profile.manager = mike.email
+        profile.save()
+
+        profile = freddy.get_profile()
+        profile.manager = mike.email
+        profile.save()
+
+        profile = bobby.get_profile()
+        profile.manager = mike.email
+        profile.save()
+
+        profile = dicky.get_profile()
+        profile.manager = mike.email
+        profile.save()
+
+        profile = harry.get_profile()
+        profile.manager = mike.email
+        profile.save()
+
         response = self.client.get(url)
         eq_(response.status_code, 200)
         struct = json.loads(response.content)
         eq_(len(struct['now']), 2)
         eq_(len(struct['upcoming']), 1)
+
         names = [x['name'] for x in struct['now']]
-        ok_('dicky' in names[0])
-        ok_('freddy' in names[1])
+        ok_('freddy' in names[0])
+        ok_('dicky' in names[1])
         names = [x['name'] for x in struct['upcoming']]
         ok_('harry' in names[0])
 

@@ -53,12 +53,14 @@ def right_now(request):
 
     start = today = datetime.datetime.utcnow()
     end = start + datetime.timedelta(days=90)
+
     for entry in (Entry.objects
                    .filter(user__in=user_ids,
                            total_hours__gte=0,
                            total_hours__isnull=False)
                    .select_related('user')
-                   .exclude(Q(end__lt=start) | Q(start__gt=end))):
+                   .order_by('start')
+                   .exclude(Q(end__lt=start) | Q(start__gte=end))):
         row = {}
         name = entry.user.get_full_name()
         if not name:

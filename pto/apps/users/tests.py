@@ -29,7 +29,8 @@ class LDAPLookupTests(TestCase):
         ldap.open = Mock('ldap.open')
         ldap.open.mock_returns = Mock('ldap_connection')
         ldap.set_option = Mock(return_value=None)
-        assert 'LocMemCache' in settings.CACHES['default']['BACKEND']
+        from django.core.cache import cache
+        assert cache.__class__.__name__ == 'LocMemCache', cache.__class__.__name__
 
     def tearDown(self):
         super(LDAPLookupTests, self).tearDown()

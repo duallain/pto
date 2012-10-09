@@ -60,6 +60,7 @@ def handler500(request):
 
 
 def home(request):  # aka dashboard
+    raise ValueError('shit')
     data = {}
     data['mobile'] = request.MOBILE  # thank you django-mobility (see settings)
     if data['mobile']:

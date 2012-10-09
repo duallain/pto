@@ -4,43 +4,80 @@
     <meta charset="utf-8">
     <title>Oh nooo! Something went horribly wrong</title>
     <style>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  list-style: none;
+}
 html {
   font: 14px "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-weight: normal;
   font-style: normal;
-  background: url(/media/css/images/bg.png) #67a7c7 repeat-x fixed;
-  color: #fff;
-  }
+  background: url(/static/css/images/bg.png) #67a7c7 repeat-x fixed;
+  color: #ffffff;
+}
+h1 {
+  margin-bottom: 20px;
+}
+h1 a {
+  font-size: 250%;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 1px #141414;
+  background: url(/static/css/images/pto-dino.png) no-repeat;
+  padding-left: 70px;
+}
+h1 a:hover {
+  text-decoration: none;
+}
+h2 {
+  font-size: 140%;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+h1,
+h3,
+h4 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 body {
   padding: 15px;
   margin: 0;
-  }
+}
+a {
+  color: #acd1e3;
+}
+a:hover {
+  text-decoration: underline;
+}
+em {
+  font-style: italic;
+}
 #page {
   width: 90%;
   margin: 0 auto;
   position: relative;
-  }
+  /* do this nesting to avoid styling the header */
+
+}
+#page section a {
+  color: #0489b7;
+}
 section {
   display: block;
   color: black;
   background-color: white;
   padding: 1em;
   border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
   margin-top: 1em;
   min-height: 300px;
-  }
-
-h1 a {
-  left: 10%;
-  height: 47px;
-  width: 0;
-  padding-left: 275px;
-  background: url(/media/css/images/pto.png) no-repeat;
-  overflow: hidden;
-  display: block;
-  }
+}
 #error-info {
   font-size:80%;
   margin-top:50px;
@@ -50,7 +87,7 @@ h1 a {
   <body>
   <div id="page">
     <header>
-      <h1><a href="/">Vacation Notification</a></h1>
+      <h1><a href="/">Mozilla Vacation</a></h1>
     </header>
 
     <section id="content">

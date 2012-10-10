@@ -48,7 +48,12 @@ hashers = (#'django_sha2.hashers.BcryptHMACCombinedPasswordVerifier',
 PASSWORD_HASHERS = get_password_hashers(hashers, HMAC_KEYS)
 AUTH_LDAP_BIND_PASSWORD = 'Anything'
 AUTH_LDAP_BIND_DN = 'Something'
-
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'pto'
+    }
+}
 " > pto/settings/local.py
 
 ## install dependencies

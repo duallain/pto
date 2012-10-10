@@ -129,6 +129,16 @@ TOTALS = {
   # Jill?!?!?!
 }
 
+# because we use LDAP users only, we never have to store real passwords,
+# we don't need django_sha2 so go back to Django defaults
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+    'django.contrib.auth.hashers.SHA1PasswordHasher',
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+    'django.contrib.auth.hashers.CryptPasswordHasher',
+)
 
 try:
     ## LDAP

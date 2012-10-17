@@ -100,6 +100,7 @@ section {
       <li>Restarting your computer. Ideally without saving any documents first.</li>
       <li>Go back to to <a href="/">home page</a> and try again.</li>
     </ul>
+    {% if _report_traceback %}
     <div id="error-info">
     <hr>
     <h3>For the nerdily inclined...</h3>
@@ -110,6 +111,7 @@ section {
     </p>
     <pre>{{ err_traceback }}</pre>
     </div>
+    {% endif %}
     </section>
   </div>
   </body>

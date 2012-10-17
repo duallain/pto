@@ -44,6 +44,11 @@ DATABASES = {
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #SESSION_COOKIE_SECURE = False  # if you run http://localhost:8000
 
+## Dev deployment settings
+# get tracebacks on DEBUG=False
+#TRACEBACKS_ON_500 = False
+
+
 AUTH_LDAP_BIND_PASSWORD = 'Must be entered'
 AUTH_LDAP_BIND_DN = 'Must be entered'
 

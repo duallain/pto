@@ -2,6 +2,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this file,
 # You can obtain one at http://mozilla.org/MPL/2.0/.
 
+import sys
+import traceback
+from StringIO import StringIO
 import re
 import datetime
 from urllib import urlencode
@@ -46,16 +49,18 @@ def valid_email(value):
 
 def handler500(request):
     data = {}
-    import sys
-    import traceback
-    from StringIO import StringIO
-    err_type, err_value, err_traceback = sys.exc_info()
-    out = StringIO()
-    traceback.print_exc(file=out)
-    traceback_formatted = out.getvalue()
-    data['err_type'] = err_type
-    data['err_value'] = err_value
-    data['err_traceback'] = traceback_formatted
+    if settings.TRACEBACKS_ON_500:
+        err_type, err_value, err_traceback = sys.exc_info()
+        out = StringIO()
+        traceback.print_exc(file=out)
+        traceback_formatted = out.getvalue()
+        data['err_type'] = err_type
+        data['err_value'] = err_value
+        data['err_traceback'] = traceback_formatted
+        data['_report_traceback'] = True
+    else:
+        data['_report_traceback'] = False
+
     return render(request, '500.html', data, status=500)
 
 

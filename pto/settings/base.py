@@ -141,6 +141,9 @@ PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.CryptPasswordHasher',
 )
 
+# If true, a python traceback and error message is shown on the 500.html page
+TRACEBACKS_ON_500 = False
+
 try:
     ## LDAP
     import ldap

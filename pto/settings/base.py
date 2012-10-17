@@ -85,6 +85,7 @@ CACHES = {
 }
 
 SESSION_COOKIE_SECURE = True
+COOKIES_SECURE = True
 
 ## Tests
 TEST_RUNNER = 'test_utils.runner.RadicalTestSuiteRunner'

@@ -546,3 +546,10 @@ class UsersTests(TestCase):
         profile = UserProfile.objects.get(user=mortal)
         eq_(profile.country, 'GB')
         eq_(profile.city, 'London')
+
+    def test_password_autocomplete_off(self):
+        url = reverse('users.login')
+        response = self.client.get(url)
+        regex = re.compile('<input.*?type="password".*?>')
+        html = regex.findall(response.content)[0]
+        ok_('autocomplete="off"' in html)

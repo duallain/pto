@@ -28,6 +28,10 @@ class AuthenticationForm(django.contrib.auth.forms.AuthenticationForm):
     username = forms.CharField(label="Username", max_length=75,
                                widget=EmailInput())
     #rememberme = forms.BooleanField(label="Remember me", required=False)
+    password = forms.CharField(
+        label="Password",
+        widget=forms.PasswordInput(attrs={'autocomplete': 'off'})
+    )
 
 
 class ProfileForm(BaseModelForm):

@@ -51,7 +51,7 @@ class BaseForm(_BaseForm, forms.Form):
 
 
 class AddForm(BaseForm):
-    start = forms.DateField(required=True)
+    start = forms.DateField(required=True, label="Use format MM/DD/YYYY, for example January 16th 2020 - 01/16/2020")
     end = forms.DateField(required=True)
     details = forms.CharField(required=False,
                               widget=forms.widgets.Textarea(attrs={
